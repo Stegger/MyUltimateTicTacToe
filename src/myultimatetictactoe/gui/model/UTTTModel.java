@@ -5,6 +5,8 @@
  */
 package myultimatetictactoe.gui.model;
 
+import myultimatetictactoe.bll.game.GameManager;
+import myultimatetictactoe.bll.game.MyGameState;
 import myultimatetictactoe.bll.move.IMove;
 
 /**
@@ -14,9 +16,16 @@ import myultimatetictactoe.bll.move.IMove;
 public class UTTTModel
 {
 
+    private GameManager gameManager;
+
+    public UTTTModel()
+    {
+        gameManager = new GameManager(new MyGameState());
+    }
+
     public void makeMove(IMove move)
     {
-        System.out.println("X: " + move.getX() + ", Y:" + move.getY());
+        gameManager.UpdateGame(move);
     }
 
 }
